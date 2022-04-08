@@ -1,13 +1,15 @@
 import "./css/SidebarAnime.css";
 
-const SidebarAnime = () => {
+const SidebarAnime = ({ topAnime }) => {
   return (
     <div className="sidebarContainer">
       <nav>
         <h3>top Anime</h3>
-        <a href="#" target="_blank" rel="noreferrer">
-          Haibane renmei
-        </a>
+        {topAnime.map((x) => (
+          <a href="#" target="_blank" rel="noreferrer">
+            {x.title})
+          </a>
+        ))}
       </nav>
     </div>
   );
