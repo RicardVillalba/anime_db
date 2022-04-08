@@ -1,11 +1,20 @@
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import SidebarAnime from "./components/SidebarAnime";
+import MainAnimeContent from "./components/MainAnimeContent";
 import "./App.css";
 
 const App = () => {
+  const [animeList, SetAnimeList] = useState([]);
+  const [topAnime, SetTopAnime] = useState([]);
+  const [search, SetSearch] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>anime</h1>
-      </header>
+      <Header />
+      <div className="mainSectionsContainer">
+        <SidebarAnime topAnime={topAnime} />
+        <MainAnimeContent animeList={animeList} />
+      </div>
     </div>
   );
 };
