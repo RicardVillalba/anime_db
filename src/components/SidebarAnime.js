@@ -6,7 +6,7 @@ const SidebarAnime = ({ topAnime }) => {
       <nav>
         <h3>top Anime</h3>
         {topAnime.map((x) => (
-          <a href="#" target="_blank" rel="noreferrer">
+          <a href={x.url} target="_blank" rel="noreferrer" key={x.mal_id}>
             {x.title})
           </a>
         ))}
