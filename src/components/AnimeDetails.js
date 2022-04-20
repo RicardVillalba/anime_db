@@ -5,13 +5,13 @@ const AnimeDetails = ({ anime }) => {
       <h1>{anime.title}</h1>
       <img src={anime.image_url} alt="anime im" />
       <p>{anime.synopsis}</p>
-      <p>episodes:{anime.episodes}</p>
-      <p>score:{anime.score}</p>
-      <p>start date:{anime.start_date}</p>
-      <p>end date:{anime.end_date}</p>
-      <p>emision:{anime.type}</p>
-      <p>rated:{anime.rated}</p>
-      <p>airing:{anime.airing}</p>
+      <p>episodes: {anime.episodes}</p>
+      <p>score: {anime.score}</p>
+      <p>start date: {anime.start_date}</p>
+      <p>end date: {anime.end_date}</p>
+      <p>Type: {anime.type}</p>
+      <p>rated: {anime.rated}</p>
+      <p>airing: {anime.airing}</p>
     </div>
   );
 };

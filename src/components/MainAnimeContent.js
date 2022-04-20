@@ -6,14 +6,26 @@ const MainAnimeContent = (props) => {
   return (
     <div className="mainAnimeContainer">
       <div className="mainAnimeHead">
-        <form className="searchAnime" onSubmit={props.HandleSearch}>
-          <input
-            type="search"
-            placeholder="search for an anime"
-            required
-            value={props.search}
-            onChange={(e) => props.SetSearch(e.target.value)}
-          />
+        <form onSubmit={props.HandleSearch}>
+          <div className="leftForm">
+            <select
+              className="selectForm"
+              value="{props.type}"
+              onChange={(e) => props.SetType(e.target.value)}
+            >
+              <option value="anime">anime</option>
+              <option value="manga">manga</option>
+            </select>
+            <input
+              className="searchInput"
+              type="search"
+              placeholder="search for an anime"
+              required
+              value={props.search}
+              onChange={(e) => props.SetSearch(e.target.value)}
+            />
+          </div>
+          <input type="submit" value="Submit" className="submitForm" />
         </form>
       </div>
       <div className="mainAnimeCards">

@@ -1,7 +1,67 @@
+.mainAnimeContainer {
+width: 100%;
+text-align: center;
+display: flex;
+flex-direction: column
+}
+
+.mainAnimeHead {
+	width: 100%;
+}
+
+.mainAnimeHead form {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 80px;
+	
+}
+
+.searchInput {
+	width: 320px;
+	background-color: ghostwhite;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.selectForm {
+	width: 150px;
+	background-color: ghostwhite;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.submitForm {
+	width: 70px;
+	background-color: ghostwhite;
+	color: gray;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	
+}
+
+.submitForm:hover {
+	background-color: gainsboro;
+	color: black;
+	transform: translateY( 1px);
+}
+
 .mainAnimeCards {
-    width: 80vw;
+    width: 100%;
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	padding: 30px 0 0 0;
 }

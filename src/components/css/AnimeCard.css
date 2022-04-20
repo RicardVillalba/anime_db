@@ -1,7 +1,37 @@
 .cardContainer {
-    width: 300px
+    width: 300px;
+    max-width: 350px;
+    border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: ghostwhite;
 }
 
 .cardContainer img {
-    width: 200px;
+    width: 220px;
+    border-radius: 10px;
 }
+
+.cardContainer h3 {
+    padding: 5px 0 ;
+}
+
+a:link {
+    text-decoration: none;
+    color: gray;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: gray;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
