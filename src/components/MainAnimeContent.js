@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimeCard from "./AnimeCard";
 import "./css/MainAnimeContent.css";
 
@@ -17,10 +18,14 @@ const MainAnimeContent = (props) => {
       </div>
       <div className="mainAnimeCards">
         {props.animeList.map((anime) => (
-          <AnimeCard anime={anime} key={anime.mal_id} />
+          <Link to={`${anime.mal_id}`} key={anime.mal_id}>
+            <AnimeCard anime={anime} />
+          </Link>
         ))}
       </div>
     </div>
   );
 };
 export default MainAnimeContent;
+
+//

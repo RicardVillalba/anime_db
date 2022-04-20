@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import SidebarAnime from "./components/SidebarAnime";
 import MainAnimeContent from "./components/MainAnimeContent";
+
 import "./App.css";
 
 const App = () => {
@@ -35,18 +37,25 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="mainSectionsContainer">
-        <SidebarAnime topAnime={topAnime} />
-        <MainAnimeContent
-          animeList={animeList}
-          HandleSearch={HandleSearch}
-          search={search}
-          SetSearch={SetSearch}
-        />
-      </div>
-    </div>
+    <Routes>
+      <Route
+        path="*"
+        element={
+          <div className="App">
+            <Header />
+            <div className="mainSectionsContainer">
+              <SidebarAnime topAnime={topAnime} />
+              <MainAnimeContent
+                animeList={animeList}
+                HandleSearch={HandleSearch}
+                search={search}
+                SetSearch={SetSearch}
+              />
+            </div>
+          </div>
+        }
+      />
+    </Routes>
   );
 };
 
