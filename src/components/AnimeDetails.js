@@ -1,5 +1,4 @@
 const AnimeDetails = ({ anime }) => {
-  console.log(anime);
   return (
     <div>
       <h1>{anime.title}</h1>
