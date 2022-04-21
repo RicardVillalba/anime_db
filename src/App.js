@@ -1,23 +1,24 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useState } from "react";
-import SearchForm from "./components/SearchForm";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
-//import SidebarAnime from "./components/SidebarAnime";
+import SearchForm from "./components/SearchForm";
+import TopAnime from "./components/TopAnime";
 import MainAnimeContent from "./components/MainAnimeContent";
 import "./App.css";
 
 const App = () => {
+  const [type, SetType] = useState("");
   const [animeList, SetAnimeList] = useState([]);
-
   const [search, SetSearch] = useState("");
-  const [type, SetType] = useState("anime");
+
+  const [topAnime, SetTopAnime] = useState([]);
 
   const HandleSearch = (e) => {
     e.preventDefault();
     FechAnime(search, type);
   };
 
-  const FechAnime = async (query, type, orderBy) => {
+  const FechAnime = async (query, type) => {
     const temp = await fetch(
       `https://api.jikan.moe/v3/search/${type}?q=${query}&order_by=title&sort=desc&limit=200`
     ).then((res) => res.json());
@@ -26,8 +27,20 @@ const App = () => {
   };
 
   const location = useLocation();
-  console.log(location.pathname);
 
+  const GetTopAnime = async () => {
+    const temp = await fetch(
+      `https://api.jikan.moe/v3/top/anime/1/bypopularity`
+    ).then((res) => res.json());
+
+    SetTopAnime(temp.top.slice(0, 15));
+  };
+
+  useEffect(() => {
+    GetTopAnime();
+  }, []);
+
+  console.log(type);
   return (
     <Routes>
       <Route
@@ -36,19 +49,20 @@ const App = () => {
           <div className="App">
             {location.pathname === "/" ? <Header /> : null}
 
-            {location.pathname === "/" ? (
-              <SearchForm
-                animeList={animeList}
-                HandleSearch={HandleSearch}
-                search={search}
-                SetSearch={SetSearch}
-                type={type}
-                SetType={SetType}
-              />
-            ) : null}
+            <SearchForm
+              animeList={animeList}
+              HandleSearch={HandleSearch}
+              search={search}
+              SetSearch={SetSearch}
+              type={type}
+              SetType={SetType}
+            />
 
             <div className="mainSectionsContainer">
-              <MainAnimeContent animeList={animeList} />
+              {search !== "" ? (
+                <MainAnimeContent animeList={animeList} />
+              ) : null}
+              {search === "" ? <TopAnime topAnime={topAnime} /> : null}
             </div>
           </div>
         }
@@ -58,21 +72,3 @@ const App = () => {
 };
 
 export default App;
-
-//const [topAnime, SetTopAnime] = useState([]);
-
-// const GetTopAnime = async () => {
-//   const temp = await fetch(
-//     `https://api.jikan.moe/v3/top/anime/1/bypopularity`
-//   ).then((res) => res.json());
-
-//   SetTopAnime(temp.top.slice(0, 10));
-// };
-
-//useEffect(() => {
-//   GetTopAnime();
-
-// }, []);
-
-// <SidebarAnime topAnime={topAnime} />
-//
