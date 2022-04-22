@@ -18,9 +18,9 @@ const App = () => {
     FechAnime(search, type);
   };
 
-  const FechAnime = async (query, type) => {
+  const FechAnime = async (search, type) => {
     const temp = await fetch(
-      `https://api.jikan.moe/v3/search/${type}?q=${query}&order_by=title&sort=desc&limit=200`
+      `https://api.jikan.moe/v3/search/${type}?q=${search}&order_by=title&sort=desc&limit=200`
     ).then((res) => res.json());
 
     SetAnimeList(temp.results);
@@ -40,7 +40,6 @@ const App = () => {
     GetTopAnime();
   }, []);
 
-  console.log(type);
   return (
     <Routes>
       <Route
@@ -61,11 +60,11 @@ const App = () => {
             ) : null}
 
             <div className="mainSectionsContainer">
-              {search !== "" ? (
+              {animeList !== 0 ? (
                 <MainAnimeContent animeList={animeList} />
               ) : null}
-              {search === "" ? <TopAnime topAnime={topAnime} /> : null}
             </div>
+            {animeList.length === 0 ? <TopAnime topAnime={topAnime} /> : null}
           </div>
         }
       />

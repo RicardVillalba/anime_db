@@ -16,5 +16,3 @@ const MainAnimeContent = (props) => {
   );
 };
 export default MainAnimeContent;
-
-//
