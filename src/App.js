@@ -7,7 +7,7 @@ import MainAnimeContent from "./components/MainAnimeContent";
 import "./App.css";
 
 const App = () => {
-  const [type, SetType] = useState("");
+  const [type, SetType] = useState("anime");
   const [animeList, SetAnimeList] = useState([]);
   const [search, SetSearch] = useState("");
 
@@ -49,14 +49,16 @@ const App = () => {
           <div className="App">
             {location.pathname === "/" ? <Header /> : null}
 
-            <SearchForm
-              animeList={animeList}
-              HandleSearch={HandleSearch}
-              search={search}
-              SetSearch={SetSearch}
-              type={type}
-              SetType={SetType}
-            />
+            {location.pathname === "/" ? (
+              <SearchForm
+                animeList={animeList}
+                HandleSearch={HandleSearch}
+                search={search}
+                SetSearch={SetSearch}
+                type={type}
+                SetType={SetType}
+              />
+            ) : null}
 
             <div className="mainSectionsContainer">
               {search !== "" ? (

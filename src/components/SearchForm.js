@@ -6,7 +6,7 @@ const SearchForm = (props) => {
       <form onSubmit={props.HandleSearch}>
         <div className="leftForm">
           <select
-            value="{props.type}"
+            value={props.type}
             onChange={(e) => props.SetType(e.target.value)}
             className="selectForm"
           >
