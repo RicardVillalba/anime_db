@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TopAnimeCard from "./TopAnimeCard";
-import "./css/TopAnime.css";
+import "./css/MainTopAnimeContent.css";
 
 const TopAnime = (props) => {
+  const location = useLocation();
   console.log(props);
   return (
     <div className="topAnimeContainer">
       <div className="topTitleContainer">
-        <h2>top Anime</h2>
+        {location.pathname === "/" ? <h2>top Anime</h2> : null}
       </div>
       <div className="topCards">
         {props.topAnime.map((tAnime) => (

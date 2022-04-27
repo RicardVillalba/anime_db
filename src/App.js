@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
-import TopAnime from "./components/TopAnime";
+import MainTopAnimeContent from "./components/MainTopAnimeContent";
 import MainAnimeContent from "./components/MainAnimeContent";
 import "./App.css";
 
@@ -10,8 +10,9 @@ const App = () => {
   const [type, SetType] = useState("anime");
   const [animeList, SetAnimeList] = useState([]);
   const [search, SetSearch] = useState("");
-
   const [topAnime, SetTopAnime] = useState([]);
+
+  const location = useLocation();
 
   const HandleSearch = (e) => {
     e.preventDefault();
@@ -25,8 +26,6 @@ const App = () => {
 
     SetAnimeList(temp.results);
   };
-
-  const location = useLocation();
 
   const GetTopAnime = async () => {
     const temp = await fetch(
@@ -64,7 +63,9 @@ const App = () => {
                 <MainAnimeContent animeList={animeList} />
               ) : null}
             </div>
-            {animeList.length === 0 ? <TopAnime topAnime={topAnime} /> : null}
+            {animeList.length === 0 ? (
+              <MainTopAnimeContent topAnime={topAnime} />
+            ) : null}
           </div>
         }
       />

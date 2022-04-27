@@ -23,9 +23,9 @@ const AnimeDetails = ({ anime }) => {
             <h4> score: </h4>
             <p>{anime.score}</p>
             <h4> start date: </h4>
-            <p>{anime.start_date}</p>
+            <p>{anime.start_date.slice(0, 10)}</p>
             <h4> end date: </h4>
-            <p>{anime.end_date}</p>
+            <p>{anime.end_date.slice(0, 10)}</p>
             <h4> emision: </h4>
             <p>{anime.type}</p>
             <h4> rated: </h4>
