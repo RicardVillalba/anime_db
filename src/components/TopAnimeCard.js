@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import TopAnimeDetails from "./TopAnimeDetails";
 import "./css/TopAnimeDetails.css";
+
 const TopAnimeCard = ({ tAnime }) => {
   return (
     <Routes>
